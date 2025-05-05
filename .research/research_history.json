@@ -28,5 +28,47 @@
     "experimental_setup": "The method was evaluated on text-to-3D generation using DreamFusion, SJC, and ProlificDreamer baselines with Stable Diffusion. Qualitative analysis, ablation studies, and a novel metric using COLMAP were used to assess 3D consistency. A user study with 102 participants was also conducted to evaluate 3D coherence, prompt adherence, and rendering quality.",
     "limitations": "The approach relies on the pretrained diffusion model's ability to follow text prompts and may inherit societal biases present in the training dataset. The method also has difficulty in reflecting complex user prompts faithfully.",
     "future_research_directions": "Future research directions include addressing the difficulty in reflecting complex user prompts faithfully and mitigating societal biases inherited from the dataset, similar to text-to-image generation models."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "2D diffusion",
+    "3D consistency",
+    "depth maps",
+    "semantic coding",
+    "LoRA adaptation"
+  ],
+  "add_github_urls": [
+    "https://github.com/acharkq/NExT-Mol"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2502.12638v2",
+      "arxiv_url": "http://arxiv.org/abs/2502.12638v2",
+      "title": "NExT-Mol: 3D Diffusion Meets 1D Language Modeling for 3D Molecule\n  Generation",
+      "authors": [
+        "Zhiyuan Liu",
+        "Yanchen Luo",
+        "Han Huang",
+        "Enzhi Zhang",
+        "Sihang Li",
+        "Junfeng Fang",
+        "Yaorui Shi",
+        "Xiang Wang",
+        "Kenji Kawaguchi",
+        "Tat-Seng Chua"
+      ],
+      "published_date": "2025-02-18T08:40:13Z",
+      "journal": "",
+      "doi": "",
+      "summary": "3D molecule generation is crucial for drug discovery and material design.\nWhile prior efforts focus on 3D diffusion models for their benefits in modeling\ncontinuous 3D conformers, they overlook the advantages of 1D SELFIES-based\nLanguage Models (LMs), which can generate 100% valid molecules and leverage the\nbillion-scale 1D molecule datasets. To combine these advantages for 3D molecule\ngeneration, we propose a foundation model -- NExT-Mol: 3D Diffusion Meets 1D\nLanguage Modeling for 3D Molecule Generation. NExT-Mol uses an extensively\npretrained molecule LM for 1D molecule generation, and subsequently predicts\nthe generated molecule's 3D conformers with a 3D diffusion model. We enhance\nNExT-Mol's performance by scaling up the LM's model size, refining the\ndiffusion neural architecture, and applying 1D to 3D transfer learning.\nNotably, our 1D molecule LM significantly outperforms baselines in\ndistributional similarity while ensuring validity, and our 3D diffusion model\nachieves leading performances in conformer prediction. Given these improvements\nin 1D and 3D modeling, NExT-Mol achieves a 26% relative improvement in 3D FCD\nfor de novo 3D generation on GEOM-DRUGS, and a 13% average relative gain for\nconditional 3D generation on QM9-2014. Our codes and pretrained checkpoints are\navailable at https://github.com/acharkq/NExT-Mol.",
+      "github_url": "https://github.com/acharkq/NExT-Mol",
+      "main_contributions": "The paper introduces NExT-Mol, a foundation model for 3D molecule generation that combines the strengths of 1D SELFIES-based Language Models (LMs) and 3D diffusion models. Key contributions include a novel diffusion model (DMT) for 3D conformer prediction and a transfer learning approach to leverage 1D molecule sequence data for improved 3D conformer prediction, achieving state-of-the-art performance in de novo and conditional 3D molecule generation.",
+      "methodology": "NExT-Mol employs a two-step approach: first, a Molecular Llama LM (MoLlama) generates a 1D molecule sequence using autoregressive transformers. Second, a Diffusion Molecular Transformer (DMT) predicts the 3D conformer from the 1D sequence, using Relational Multi-Head Self-Attention (RMHA) and adaptive layer normalization. Transfer learning is used to incorporate MoLlama's 1D representations into DMT.",
+      "experimental_setup": "The model was evaluated on GEOM-DRUGS, GEOM-QM9, and QM9-2014 datasets. De novo and conditional 3D molecule generation were assessed using metrics like FCD, atom stability, molecular stability, and geometric similarity. 3D conformer prediction was evaluated using Coverage (COV) and Average Minimum RMSD (AMR). Baselines include CDGS, JODO, MiDi, G-SchNet, G-SphereNet, EDM, MDM, GeoLDM, EEGSDE, EQGAT-diff, MolGPT, MolGen, OMEGA, GeoMol, GeoDiff, Torsional Diffusion, Particle Guidance, and MCF.",
+      "limitations": "The paper acknowledges limitations including the generalization of 3D conformer prediction to unseen scaffolds, not exploring randomized SELFIES data augmentation in pretraining, and not exploring pretrained molecular large LM with bi-directional Self-Attention. It also mentions the computational cost when incorporating MoLlama for 3D Conformer Prediction and the quadratic memory complexity of DMT’s Pair Representation.",
+      "future_research_directions": "Future research directions include extending NExT-Mol to process multiple molecular inputs for structure-based molecule design, modeling interactions between small molecules and proteins/RNAs, exploring diffusion guidance methods, and applying model editing techniques to update the model's knowledge according to application requirements. The authors also plan to build multi-modal foundation models with NExT-Mol as the backbone for tasks like chemical reaction prediction and drug-drug interaction prediction."
+    }
+  ]
 }
