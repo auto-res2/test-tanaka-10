@@ -1,0 +1,32 @@
+{
+  "base_queries": [
+    "diffusion model"
+  ],
+  "base_github_url": "https://github.com/ashawkey/stable-dreamfusion",
+  "base_method_text": {
+    "arxiv_id": "2303.07937v4",
+    "arxiv_url": "http://arxiv.org/abs/2303.07937v4",
+    "title": "Let 2D Diffusion Model Know 3D-Consistency for Robust Text-to-3D\n  Generation",
+    "authors": [
+      "Junyoung Seo",
+      "Wooseok Jang",
+      "Min-Seop Kwak",
+      "Hyeonsu Kim",
+      "Jaehoon Ko",
+      "Junho Kim",
+      "Jin-Hwa Kim",
+      "Jiyoung Lee",
+      "Seungryong Kim"
+    ],
+    "published_date": "2023-03-14T14:24:31Z",
+    "journal": "",
+    "doi": "",
+    "summary": "Text-to-3D generation has shown rapid progress in recent days with the advent\nof score distillation, a methodology of using pretrained text-to-2D diffusion\nmodels to optimize neural radiance field (NeRF) in the zero-shot setting.\nHowever, the lack of 3D awareness in the 2D diffusion models destabilizes score\ndistillation-based methods from reconstructing a plausible 3D scene. To address\nthis issue, we propose 3DFuse, a novel framework that incorporates 3D awareness\ninto pretrained 2D diffusion models, enhancing the robustness and 3D\nconsistency of score distillation-based methods. We realize this by first\nconstructing a coarse 3D structure of a given text prompt and then utilizing\nprojected, view-specific depth map as a condition for the diffusion model.\nAdditionally, we introduce a training strategy that enables the 2D diffusion\nmodel learns to handle the errors and sparsity within the coarse 3D structure\nfor robust generation, as well as a method for ensuring semantic consistency\nthroughout all viewpoints of the scene. Our framework surpasses the limitations\nof prior arts, and has significant implications for 3D consistent generation of\n2D diffusion models.",
+    "github_url": "https://github.com/ashawkey/stable-dreamfusion",
+    "main_contributions": "The paper addresses the 3D inconsistency problem in text-to-3D generation by introducing 3DFuse, a framework that incorporates 3D awareness into pretrained 2D diffusion models. Key contributions include a consistency injection module using point cloud depth maps and semantic coding to enhance 3D consistency and reduce semantic ambiguity.",
+    "methodology": "3DFuse uses a consistency injection module that conditions a 2D diffusion model on projected depth maps of coarse 3D structures generated from text prompts. It employs semantic code sampling to reduce text prompt ambiguity and Low-Rank Adaptation (LoRA) to ensure semantic consistency. The framework leverages an off-the-shelf point cloud generation model and finetunes a conditioning module within the diffusion model.",
+    "experimental_setup": "The method was evaluated on text-to-3D generation using DreamFusion, SJC, and ProlificDreamer baselines with Stable Diffusion. Qualitative analysis, ablation studies, and a novel metric using COLMAP were used to assess 3D consistency. A user study with 102 participants was also conducted to evaluate 3D coherence, prompt adherence, and rendering quality.",
+    "limitations": "The approach relies on the pretrained diffusion model's ability to follow text prompts and may inherit societal biases present in the training dataset. The method also has difficulty in reflecting complex user prompts faithfully.",
+    "future_research_directions": "Future research directions include addressing the difficulty in reflecting complex user prompts faithfully and mitigating societal biases inherited from the dataset, similar to text-to-image generation models."
+  }
+}
