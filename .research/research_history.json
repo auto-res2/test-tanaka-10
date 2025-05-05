@@ -1,0 +1,28 @@
+{
+  "base_queries": [
+    "diffusion model"
+  ],
+  "base_github_url": "https://github.com/spcl/DiffDA",
+  "base_method_text": {
+    "arxiv_id": "2401.05932v3",
+    "arxiv_url": "http://arxiv.org/abs/2401.05932v3",
+    "title": "DiffDA: a Diffusion Model for Weather-scale Data Assimilation",
+    "authors": [
+      "Langwen Huang",
+      "Lukas Gianinazzi",
+      "Yuejiang Yu",
+      "Peter D. Dueben",
+      "Torsten Hoefler"
+    ],
+    "published_date": "2024-01-11T14:11:12Z",
+    "journal": "",
+    "doi": "",
+    "summary": "The generation of initial conditions via accurate data assimilation is\ncrucial for weather forecasting and climate modeling. We propose DiffDA as a\ndenoising diffusion model capable of assimilating atmospheric variables using\npredicted states and sparse observations. Acknowledging the similarity between\na weather forecast model and a denoising diffusion model dedicated to weather\napplications, we adapt the pretrained GraphCast neural network as the backbone\nof the diffusion model. Through experiments based on simulated observations\nfrom the ERA5 reanalysis dataset, our method can produce assimilated global\natmospheric data consistent with observations at 0.25 deg (~30km) resolution\nglobally. This marks the highest resolution achieved by ML data assimilation\nmodels. The experiments also show that the initial conditions assimilated from\nsparse observations (less than 0.96% of gridded data) and 48-hour forecast can\nbe used for forecast models with a loss of lead time of at most 24 hours\ncompared to initial conditions from state-of-the-art data assimilation in ERA5.\nThis enables the application of the method to real-world applications, such as\ncreating reanalysis datasets with autoregressive data assimilation.",
+    "github_url": "https://github.com/spcl/DiffDA",
+    "main_contributions": "The paper introduces DiffDA, a denoising diffusion model for weather-scale data assimilation, achieving high-resolution assimilation by adapting the GraphCast neural network. It demonstrates a novel ML data assimilation method capable of assimilating high resolution data. The resulting reanalysis dataset is consistent with the given observations.",
+    "methodology": "The method employs a denoising diffusion probabilistic model, conditioning it on both predicted atmospheric states (from GraphCast) and sparse observations. It uses a soft mask and interpolated observations to strengthen the conditioning, and the GraphCast model serves as the backbone of the diffusion model.",
+    "experimental_setup": "Experiments were conducted using simulated observations from the ERA5 reanalysis dataset at a 0.25° resolution with 13 vertical levels. The model was trained on WeatherBench2 data from 1979-2015, validated on 2016 data, and tested on 2022 data. The performance was evaluated using root mean square errors (RMSEs) against the ERA5 dataset.",
+    "limitations": "The method currently only supports point measurements at a single time step as observations. It lacks quality control of the input observation data, relying on simulated observations from the ERA5 dataset. The autoregressive data assimilation experiments also show error accumulation over time, particularly for surface temperature (t2m).",
+    "future_research_directions": "Future research includes supporting broader types of observations (e.g., satellite imagery and radar soundings) and multiple time steps using loss-function-based conditioning. Exploring adding conditioning of the satellite imagery directly into the diffusion model is also suggested. Investigating possible quality control techniques for the input observation data is planned."
+  }
+}
