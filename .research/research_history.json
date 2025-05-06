@@ -1,0 +1,25 @@
+{
+  "base_queries": [
+    "diffusion model"
+  ],
+  "base_github_url": "https://github.com/coderpiaobozhe/classifier-free-diffusion-guidance-Pytorch",
+  "base_method_text": {
+    "arxiv_id": "2312.07586v5",
+    "arxiv_url": "http://arxiv.org/abs/2312.07586v5",
+    "title": "Characteristic Guidance: Non-linear Correction for Diffusion Model at\n  Large Guidance Scale",
+    "authors": [
+      "Candi Zheng",
+      "Yuan Lan"
+    ],
+    "published_date": "2023-12-11T02:40:40Z",
+    "journal": "",
+    "doi": "",
+    "summary": "Popular guidance for denoising diffusion probabilistic model (DDPM) linearly\ncombines distinct conditional models together to provide enhanced control over\nsamples. However, this approach overlooks nonlinear effects that become\nsignificant when guidance scale is large. To address this issue, we propose\ncharacteristic guidance, a guidance method that provides first-principle\nnon-linear correction for classifier-free guidance. Such correction forces the\nguided DDPMs to respect the Fokker-Planck (FP) equation of diffusion process,\nin a way that is training-free and compatible with existing sampling methods.\nExperiments show that characteristic guidance enhances semantic characteristics\nof prompts and mitigate irregularities in image generation, proving effective\nin diverse applications ranging from simulating magnet phase transitions to\nlatent space sampling.",
+    "github_url": "https://github.com/coderpiaobozhe/classifier-free-diffusion-guidance-Pytorch",
+    "main_contributions": "The paper addresses the issue of non-linearity in classifier-free guidance for denoising diffusion probabilistic models (DDPMs) at large guidance scales. It introduces \"characteristic guidance,\" a training-free method that provides non-linear correction by adhering to the Fokker-Planck (FP) equation, enhancing semantic characteristics and mitigating irregularities in image generation.",
+    "methodology": "The proposed characteristic guidance method involves a non-linear correction term (∆x) applied to classifier-free guidance. This correction is determined by solving a fixed-point equation derived from the score Fokker-Planck equation using the method of characteristics and a harmonic ansatz. Orthogonal projection operators are used as regularization to accelerate computation.",
+    "experimental_setup": "Experiments were conducted on conditional Gaussian distributions, mixtures of Gaussian distributions, CIFAR-10, ImageNet 256, and Stable Diffusion. Metrics used include Kullback-Leibler (KL) divergence, Frechet Inception Distance (FID), Inception Score (IS), negative log-likelihood (NLL), and visual inspection.",
+    "limitations": "The effectiveness of FID as an evaluation metric for guided DDPMs is questioned due to its focus on marginal probabilities rather than conditional probabilities. The iterative computation required for the non-linear correction can be slow without effective regularization.",
+    "future_research_directions": "Future research directions include exploring advanced regularization techniques beyond projection to enhance the convergence rate and accelerate computation. Additionally, the paper suggests the need for more appropriate metrics that address the discrepancy between target conditional probabilities and marginal probabilities for evaluating guided DDPMs."
+  }
+}
