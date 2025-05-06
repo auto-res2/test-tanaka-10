@@ -25,5 +25,47 @@
     "experimental_setup": "The proposed deterministic samplers were evaluated using pre-trained score functions from Huggingface on the CelebA-HQ, LSUN-Bedroom, and LSUN-Churches datasets. The image quality was visually compared for different numbers of function evaluations (NFEs).",
     "limitations": "The convergence theory might be sub-optimal in terms of its dependency on the problem dimension. The deterministic sampler requires stronger assumptions on the score estimates.",
     "future_research_directions": "Future research directions include refining the dimension dependency in the convergence theory, extending the algorithm and theory using ideas from third-order or higher-order ODEs, and designing higher-order solvers for SDE-based samplers."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "Diffusion Models",
+    "Score-Based",
+    "High-Order ODE",
+    "Convergence Theory",
+    "Momentum Methods"
+  ],
+  "add_github_urls": [
+    "https://github.com/huggingface/diffusers"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2312.12490v1",
+      "arxiv_url": "http://arxiv.org/abs/2312.12490v1",
+      "title": "InstructVideo: Instructing Video Diffusion Models with Human Feedback",
+      "authors": [
+        "Hangjie Yuan",
+        "Shiwei Zhang",
+        "Xiang Wang",
+        "Yujie Wei",
+        "Tao Feng",
+        "Yining Pan",
+        "Yingya Zhang",
+        "Ziwei Liu",
+        "Samuel Albanie",
+        "Dong Ni"
+      ],
+      "published_date": "2023-12-19T17:55:16Z",
+      "journal": "",
+      "doi": "",
+      "summary": "Diffusion models have emerged as the de facto paradigm for video generation.\nHowever, their reliance on web-scale data of varied quality often yields\nresults that are visually unappealing and misaligned with the textual prompts.\nTo tackle this problem, we propose InstructVideo to instruct text-to-video\ndiffusion models with human feedback by reward fine-tuning. InstructVideo has\ntwo key ingredients: 1) To ameliorate the cost of reward fine-tuning induced by\ngenerating through the full DDIM sampling chain, we recast reward fine-tuning\nas editing. By leveraging the diffusion process to corrupt a sampled video,\nInstructVideo requires only partial inference of the DDIM sampling chain,\nreducing fine-tuning cost while improving fine-tuning efficiency. 2) To\nmitigate the absence of a dedicated video reward model for human preferences,\nwe repurpose established image reward models, e.g., HPSv2. To this end, we\npropose Segmental Video Reward, a mechanism to provide reward signals based on\nsegmental sparse sampling, and Temporally Attenuated Reward, a method that\nmitigates temporal modeling degradation during fine-tuning. Extensive\nexperiments, both qualitative and quantitative, validate the practicality and\nefficacy of using image reward models in InstructVideo, significantly enhancing\nthe visual quality of generated videos without compromising generalization\ncapabilities. Code and models will be made publicly available.",
+      "github_url": "https://github.com/huggingface/diffusers",
+      "main_contributions": "The paper introduces InstructVideo, a novel approach to enhance text-to-video diffusion models using human feedback. It addresses the issue of visually unappealing and misaligned video generation by fine-tuning the models with reward signals derived from image reward models. The key contributions include reformulating reward fine-tuning as an editing process for efficiency, and using Segmental Video Reward (SegVR) and Temporally Attenuated Reward (TAR) to adapt image reward models for video.",
+      "methodology": "InstructVideo recasts reward fine-tuning as an editing procedure, using partial inference of the DDIM sampling chain to reduce computational costs. It employs Segmental Video Reward (SegVR) to sparsely sample frames for reward signals and Temporally Attenuated Reward (TAR) to weigh central frames more heavily, mitigating temporal modeling collapse. LoRA is used for efficient fine-tuning.",
+      "experimental_setup": "The experiments were conducted using the ModelScopeT2V model trained on the WebVid10M dataset. The prompts describing 45 animal species. HPSv2 was used as the primary reward model. Evaluation metrics included HPSv2 score and user studies to assess video quality and text alignment. Generalization was tested on new animal prompts and non-animal prompts.",
+      "limitations": "The paper mentions the risk of over-optimization during reward fine-tuning, which can degrade video quality despite increasing reward scores. It also acknowledges that specialized video reward models might outperform the repurposed image reward models. Additionally, the method's reliance on image reward models might not fully capture the nuances of video quality and temporal coherence.",
+      "future_research_directions": "Future research directions include developing more advanced video reward models that capture human preferences for video as a whole and designing strategic mechanisms to identify and ameliorate over-optimization during reward fine-tuning. Also, it is expected to explore the adaptation to other reward functions."
+    }
+  ]
 }
