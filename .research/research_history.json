@@ -2,64 +2,27 @@
   "base_queries": [
     "diffusion model"
   ],
-  "base_github_url": "https://github.com/coderpiaobozhe/classifier-free-diffusion-guidance-Pytorch",
+  "base_github_url": "https://github.com/spcl/DiffDA",
   "base_method_text": {
-    "arxiv_id": "2312.07586v5",
-    "arxiv_url": "http://arxiv.org/abs/2312.07586v5",
-    "title": "Characteristic Guidance: Non-linear Correction for Diffusion Model at\n  Large Guidance Scale",
+    "arxiv_id": "2401.05932v3",
+    "arxiv_url": "http://arxiv.org/abs/2401.05932v3",
+    "title": "DiffDA: a Diffusion Model for Weather-scale Data Assimilation",
     "authors": [
-      "Candi Zheng",
-      "Yuan Lan"
+      "Langwen Huang",
+      "Lukas Gianinazzi",
+      "Yuejiang Yu",
+      "Peter D. Dueben",
+      "Torsten Hoefler"
     ],
-    "published_date": "2023-12-11T02:40:40Z",
+    "published_date": "2024-01-11T14:11:12Z",
     "journal": "",
     "doi": "",
-    "summary": "Popular guidance for denoising diffusion probabilistic model (DDPM) linearly\ncombines distinct conditional models together to provide enhanced control over\nsamples. However, this approach overlooks nonlinear effects that become\nsignificant when guidance scale is large. To address this issue, we propose\ncharacteristic guidance, a guidance method that provides first-principle\nnon-linear correction for classifier-free guidance. Such correction forces the\nguided DDPMs to respect the Fokker-Planck (FP) equation of diffusion process,\nin a way that is training-free and compatible with existing sampling methods.\nExperiments show that characteristic guidance enhances semantic characteristics\nof prompts and mitigate irregularities in image generation, proving effective\nin diverse applications ranging from simulating magnet phase transitions to\nlatent space sampling.",
-    "github_url": "https://github.com/coderpiaobozhe/classifier-free-diffusion-guidance-Pytorch",
-    "main_contributions": "The paper addresses the issue of non-linearity in classifier-free guidance for denoising diffusion probabilistic models (DDPMs) at large guidance scales. It introduces \"characteristic guidance,\" a training-free method that provides non-linear correction by adhering to the Fokker-Planck (FP) equation, enhancing semantic characteristics and mitigating irregularities in image generation.",
-    "methodology": "The proposed characteristic guidance method involves a non-linear correction term (∆x) applied to classifier-free guidance. This correction is determined by solving a fixed-point equation derived from the score Fokker-Planck equation using the method of characteristics and a harmonic ansatz. Orthogonal projection operators are used as regularization to accelerate computation.",
-    "experimental_setup": "Experiments were conducted on conditional Gaussian distributions, mixtures of Gaussian distributions, CIFAR-10, ImageNet 256, and Stable Diffusion. Metrics used include Kullback-Leibler (KL) divergence, Frechet Inception Distance (FID), Inception Score (IS), negative log-likelihood (NLL), and visual inspection.",
-    "limitations": "The effectiveness of FID as an evaluation metric for guided DDPMs is questioned due to its focus on marginal probabilities rather than conditional probabilities. The iterative computation required for the non-linear correction can be slow without effective regularization.",
-    "future_research_directions": "Future research directions include exploring advanced regularization techniques beyond projection to enhance the convergence rate and accelerate computation. Additionally, the paper suggests the need for more appropriate metrics that address the discrepancy between target conditional probabilities and marginal probabilities for evaluating guided DDPMs."
-  },
-  "add_queries": [
-    "vision"
-  ],
-  "generated_queries": [
-    "diffusion model",
-    "nonlinear guidance",
-    "fokker planck",
-    "characteristic guidance",
-    "projection regularization"
-  ],
-  "add_github_urls": [
-    "https://github.com/whlzy/FiT"
-  ],
-  "add_method_texts": [
-    {
-      "arxiv_id": "2402.12376v4",
-      "arxiv_url": "http://arxiv.org/abs/2402.12376v4",
-      "title": "FiT: Flexible Vision Transformer for Diffusion Model",
-      "authors": [
-        "Zeyu Lu",
-        "Zidong Wang",
-        "Di Huang",
-        "Chengyue Wu",
-        "Xihui Liu",
-        "Wanli Ouyang",
-        "Lei Bai"
-      ],
-      "published_date": "2024-02-19T18:59:07Z",
-      "journal": "",
-      "doi": "",
-      "summary": "Nature is infinitely resolution-free. In the context of this reality,\nexisting diffusion models, such as Diffusion Transformers, often face\nchallenges when processing image resolutions outside of their trained domain.\nTo overcome this limitation, we present the Flexible Vision Transformer (FiT),\na transformer architecture specifically designed for generating images with\nunrestricted resolutions and aspect ratios. Unlike traditional methods that\nperceive images as static-resolution grids, FiT conceptualizes images as\nsequences of dynamically-sized tokens. This perspective enables a flexible\ntraining strategy that effortlessly adapts to diverse aspect ratios during both\ntraining and inference phases, thus promoting resolution generalization and\neliminating biases induced by image cropping. Enhanced by a meticulously\nadjusted network structure and the integration of training-free extrapolation\ntechniques, FiT exhibits remarkable flexibility in resolution extrapolation\ngeneration. Comprehensive experiments demonstrate the exceptional performance\nof FiT across a broad range of resolutions, showcasing its effectiveness both\nwithin and beyond its training resolution distribution. Repository available at\nhttps://github.com/whlzy/FiT.",
-      "github_url": "https://github.com/whlzy/FiT",
-      "main_contributions": "The paper introduces Flexible Vision Transformer (FiT), a novel transformer architecture for diffusion models, enabling image generation at arbitrary resolutions and aspect ratios. Key contributions include a flexible training pipeline eliminating cropping, a unique transformer architecture for dynamic token length modeling, and a training-free resolution extrapolation method.",
-      "methodology": "FiT models images as sequences of dynamically-sized tokens, using a flexible training pipeline that preserves original aspect ratios. The architecture incorporates 2D Rotary Positional Embedding (RoPE), Swish-Gated Linear Unit (SwiGLU), and Masked Multi-Head Self-Attention (MHSA). Training-free resolution extrapolation techniques, VisionNTK and VisionYaRN, are adapted for 2D RoPE.",
-      "experimental_setup": "The models were trained on the ImageNet dataset with a maximum token length of 256. Evaluation metrics include Fre'chet Inception Distance (FID), sFID, Inception Score (IS), Precision, and Recall. Experiments were conducted on various resolutions and aspect ratios, both within and outside the training distribution.",
-      "limitations": "The FiT-XL/2 model was only trained for 1.8 million steps, leading to slightly inferior performance at 256x256 resolution compared to DiT-XL/2. The generative capabilities with higher resolution training and exploration of resolution extrapolation methods requiring additional training were not thoroughly investigated.",
-      "future_research_directions": "Future research directions include exploring FiT's generative capabilities when trained with higher resolutions and larger token length limits, as well as delving into resolution extrapolation methods that require additional training."
-    }
-  ],
-  "new_method": "Below is the outcome of step 3—a genuinely new method that fuses core ideas from the Base Method (Characteristic Guidance) and a selected approach from the Add Method (FiT-style flexible tokenization). This new approach addresses one of the Base Method’s critical issues—namely, its limited adaptability to varying resolutions and aspect ratios—while retaining its non-linear Fokker-Planck–inspired corrections.\n\n─────────────────────────────────────────────────────────\n3) NEW METHOD PROPOSAL\n─────────────────────────────────────────────────────────\nWe propose “Multi-Scale Characteristic Guidance with Dynamic Tokenization” (MCG-DT), a two-stage procedure that integrates dynamic token sequences for various resolutions into the characteristic guidance framework. This new method goes beyond a simple partial modification by introducing a multi-resolution sampling pipeline, harmonizing characteristic guidance with flexible spatial layouts:\n\n1. Dynamic Tokenization & Multi-Resolution Blocks:  \n   • Unlike the Base Method’s single-resolution approach, MCG-DT applies a FiT-like encoding, where images (or latent features) are partitioned into variable-length token sequences. Each token block represents an adaptive visual patch, allowing for an unbounded range of resolutions and aspect ratios.  \n   • During sampling, MCG-DT processes tokens at multiple resolutions in a coarse-to-fine manner, incrementally refining the denoised image features.  \n\n2. Hierarchical Characteristic Guidance:  \n   • We retain the Base Method’s first-principle non-linear correction derived from the Fokker-Planck equation but distribute it hierarchically across different token scales.  \n   • A project-and-correct cycle is performed at each resolution block: the characteristic guidance correction enforces the FP consistency condition, and an orthogonal projection regularizes the token corrections for computational efficiency.  \n\n3. Cooperative Corrections Across Scales:  \n   • Token-level intermediate representations at a coarser resolution guide the next resolution’s characteristic correction. This “preview” step provides alignment cues for the next token set, preserving coherent global structure while still enabling detail enhancement at finer scales.  \n   • By propagating the non-linear corrections across multiple resolutions, MCG-DT both upholds semantic fidelity (as intended by characteristic guidance) and handles out-of-distribution resolutions effectively (benefiting from FiT’s token-based strategy).  \n\n4. Training-Free Resolution Extrapolation:\n   • As in FiT, MCG-DT uses training-free extrapolation mechanisms (e.g., adaptation of RoPE or attention masks to handle changing token lengths) so that the model can gracefully switch to higher or non-square resolutions. The hierarchical characteristic guidance then ensures that these extrapolations still respect the FP-equation–based corrections.  \n\nOverall, MCG-DT tackles the Base Method’s challenge of fixed-size processing and computational inefficiency for out-of-distribution image dimensions, merging the flexible token modeling of FiT and the non-linear FP-driven corrections of characteristic guidance into a cohesive, multi-scale pipeline. This approach greatly broadens the applicability of characteristic guidance while preserving its robust semantic control."
+    "summary": "The generation of initial conditions via accurate data assimilation is\ncrucial for weather forecasting and climate modeling. We propose DiffDA as a\ndenoising diffusion model capable of assimilating atmospheric variables using\npredicted states and sparse observations. Acknowledging the similarity between\na weather forecast model and a denoising diffusion model dedicated to weather\napplications, we adapt the pretrained GraphCast neural network as the backbone\nof the diffusion model. Through experiments based on simulated observations\nfrom the ERA5 reanalysis dataset, our method can produce assimilated global\natmospheric data consistent with observations at 0.25 deg (~30km) resolution\nglobally. This marks the highest resolution achieved by ML data assimilation\nmodels. The experiments also show that the initial conditions assimilated from\nsparse observations (less than 0.96% of gridded data) and 48-hour forecast can\nbe used for forecast models with a loss of lead time of at most 24 hours\ncompared to initial conditions from state-of-the-art data assimilation in ERA5.\nThis enables the application of the method to real-world applications, such as\ncreating reanalysis datasets with autoregressive data assimilation.",
+    "github_url": "https://github.com/spcl/DiffDA",
+    "main_contributions": "The paper introduces DiffDA, a novel machine learning method for weather-scale data assimilation using a denoising diffusion model. Key contributions include achieving high-resolution data assimilation (0.25°) ready for weather forecasting, creating data assimilation cycles with an ML weather forecasting model, and using a pretrained ML forecast model (GraphCast) as the diffusion model's backbone.",
+    "methodology": "DiffDA employs a denoising diffusion probabilistic model (DDPM) conditioned on predicted states from a forecast model (GraphCast) and sparse observations. It uses a soft mask and interpolation techniques to enforce observation values during inference. The method adapts a pretrained GraphCast model as the backbone of the diffusion model.",
+    "experimental_setup": "Experiments were conducted using the WeatherBench2 dataset (based on ERA5 reanalysis data) to simulate observations. The model was trained on data from 1979-2015, validated on 2016 data, and tested on 2022 data. Performance was evaluated using root mean square errors (RMSEs) against ERA5 data for variables like geopotential, temperature, and wind speed. Autoregressive data assimilation cycles and forecast experiments were also performed.",
+    "limitations": "The method currently only supports point measurements at a single time step as observations, excluding satellite imagery and radar soundings. It also lacks quality control of the input observation data, relying on simulated observations from the ERA5 dataset.",
+    "future_research_directions": "Future research directions include supporting broader types of observations and multiple time steps using loss-function-based conditioning, adding conditioning of satellite imagery directly into the diffusion model, and investigating possible quality control techniques for input observation data. The authors also plan to explore four-dimensional assimilation techniques."
+  }
 }
