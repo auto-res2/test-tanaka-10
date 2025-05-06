@@ -24,5 +24,44 @@
     "experimental_setup": "The method is evaluated using simulated observations from the ERA5 reanalysis dataset at 0.25° resolution with 13 vertical levels. WeatherBench2 dataset is used for training. The performance is assessed through single-step data assimilation, autoregressive data assimilation, and forecast experiments, using root mean square errors (RMSEs) to compare against ERA5 data and GraphCast forecasts.",
     "limitations": "The current method only consumes point measurements at a single time step as observations, thus excluding satellite imagery and radar soundings. It also lacks quality control of the input observation data, relying on simulated observations from the ERA5 dataset.",
     "future_research_directions": "Future research will focus on supporting broader types of observations (including satellite imagery and radar soundings) and multiple time steps using loss-function-based conditioning. Additionally, the authors plan to investigate quality control techniques for input observation data and explore adding conditioning of the satellite imagery directly into the diffusion model."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "diffusion model",
+    "denoising diffusion",
+    "conditional diffusion",
+    "graph diffusion",
+    "probabilistic model"
+  ],
+  "add_github_urls": [
+    "https://github.com/whlzy/FiT"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2402.12376v4",
+      "arxiv_url": "http://arxiv.org/abs/2402.12376v4",
+      "title": "FiT: Flexible Vision Transformer for Diffusion Model",
+      "authors": [
+        "Zeyu Lu",
+        "Zidong Wang",
+        "Di Huang",
+        "Chengyue Wu",
+        "Xihui Liu",
+        "Wanli Ouyang",
+        "Lei Bai"
+      ],
+      "published_date": "2024-02-19T18:59:07Z",
+      "journal": "",
+      "doi": "",
+      "summary": "Nature is infinitely resolution-free. In the context of this reality,\nexisting diffusion models, such as Diffusion Transformers, often face\nchallenges when processing image resolutions outside of their trained domain.\nTo overcome this limitation, we present the Flexible Vision Transformer (FiT),\na transformer architecture specifically designed for generating images with\nunrestricted resolutions and aspect ratios. Unlike traditional methods that\nperceive images as static-resolution grids, FiT conceptualizes images as\nsequences of dynamically-sized tokens. This perspective enables a flexible\ntraining strategy that effortlessly adapts to diverse aspect ratios during both\ntraining and inference phases, thus promoting resolution generalization and\neliminating biases induced by image cropping. Enhanced by a meticulously\nadjusted network structure and the integration of training-free extrapolation\ntechniques, FiT exhibits remarkable flexibility in resolution extrapolation\ngeneration. Comprehensive experiments demonstrate the exceptional performance\nof FiT across a broad range of resolutions, showcasing its effectiveness both\nwithin and beyond its training resolution distribution. Repository available at\nhttps://github.com/whlzy/FiT.",
+      "github_url": "https://github.com/whlzy/FiT",
+      "main_contributions": "The paper introduces Flexible Vision Transformer (FiT), a novel transformer architecture for diffusion models capable of generating images at arbitrary resolutions and aspect ratios. FiT overcomes the limitations of existing diffusion models like Diffusion Transformers (DiT) that struggle with image resolutions outside their trained domain by conceptualizing images as sequences of dynamically-sized tokens and introducing a flexible training pipeline, a unique transformer architecture for dynamic token length modeling, and a training-free resolution extrapolation method.",
+      "methodology": "FiT uses a flexible training pipeline that preserves the original image aspect ratio by viewing the image as a sequence of tokens and adaptively resizing high-resolution images to fit within a predefined maximum token limit. It adopts 2D Rotary Positional Embedding (RoPE) and Swish-Gated Linear Unit (SwiGLU), and replaces DiT’s Multi-Head Self-Attention (MHSA) with Masked MHSA. The paper also introduces training-free resolution extrapolation techniques, VisionNTK and VisionYaRN, tailored for 2D RoPE.",
+      "experimental_setup": "The model was trained on the ImageNet dataset with a maximum resolution limitation of HW ⩽ 2562. The models were evaluated using Fre'chet Inception Distance (FID), sFID, Inception Score (IS), and improved Precision and Recall metrics. Experiments were conducted on different aspect ratios (1:1, 1:2, and 1:3) and resolutions both within (256×256, 160×320, 128×384) and beyond (320×320, 224×448, 160×480) the training distribution.",
+      "limitations": "The FiT-XL/2 model was only trained for 1.8M steps, and its performance at 256x256 resolution is slightly inferior compared to the DiT-XL/2 model. The generative capabilities of FiT-XL/2 when trained with higher resolutions (larger token length limitation) have not been thoroughly explored. The paper only explores training-free resolution extrapolation techniques.",
+      "future_research_directions": "Future research could explore training FiT with higher resolutions and larger token length limits, investigate resolution extrapolation methods that require additional training, and further explore the generative capabilities of FiT for generating images with arbitrary resolutions and aspect ratios."
+    }
+  ]
 }
