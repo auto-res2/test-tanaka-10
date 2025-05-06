@@ -24,5 +24,41 @@
     "experimental_setup": "Experiments were conducted using the WeatherBench2 dataset (based on ERA5 reanalysis data) to simulate observations. The model was trained on data from 1979-2015, validated on 2016 data, and tested on 2022 data. Performance was evaluated using root mean square errors (RMSEs) against ERA5 data for variables like geopotential, temperature, and wind speed. Autoregressive data assimilation cycles and forecast experiments were also performed.",
     "limitations": "The method currently only supports point measurements at a single time step as observations, excluding satellite imagery and radar soundings. It also lacks quality control of the input observation data, relying on simulated observations from the ERA5 dataset.",
     "future_research_directions": "Future research directions include supporting broader types of observations and multiple time steps using loss-function-based conditioning, adding conditioning of satellite imagery directly into the diffusion model, and investigating possible quality control techniques for input observation data. The authors also plan to explore four-dimensional assimilation techniques."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "diffusion model",
+    "data assimilation",
+    "denoising diffusion",
+    "conditional diffusion",
+    "probabilistic modeling"
+  ],
+  "add_github_urls": [
+    "https://github.com/mlvlab/SCDM"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2402.16506v3",
+      "arxiv_url": "http://arxiv.org/abs/2402.16506v3",
+      "title": "Stochastic Conditional Diffusion Models for Robust Semantic Image\n  Synthesis",
+      "authors": [
+        "Juyeon Ko",
+        "Inho Kong",
+        "Dogyun Park",
+        "Hyunwoo J. Kim"
+      ],
+      "published_date": "2024-02-26T11:41:28Z",
+      "journal": "",
+      "doi": "",
+      "summary": "Semantic image synthesis (SIS) is a task to generate realistic images\ncorresponding to semantic maps (labels). However, in real-world applications,\nSIS often encounters noisy user inputs. To address this, we propose Stochastic\nConditional Diffusion Model (SCDM), which is a robust conditional diffusion\nmodel that features novel forward and generation processes tailored for SIS\nwith noisy labels. It enhances robustness by stochastically perturbing the\nsemantic label maps through Label Diffusion, which diffuses the labels with\ndiscrete diffusion. Through the diffusion of labels, the noisy and clean\nsemantic maps become similar as the timestep increases, eventually becoming\nidentical at $t=T$. This facilitates the generation of an image close to a\nclean image, enabling robust generation. Furthermore, we propose a class-wise\nnoise schedule to differentially diffuse the labels depending on the class. We\ndemonstrate that the proposed method generates high-quality samples through\nextensive experiments and analyses on benchmark datasets, including a novel\nexperimental setup simulating human errors during real-world applications. Code\nis available at https://github.com/mlvlab/SCDM.",
+      "github_url": "https://github.com/mlvlab/SCDM",
+      "main_contributions": "The paper introduces Stochastic Conditional Diffusion Model (SCDM), a novel diffusion model designed to enhance robustness in semantic image synthesis (SIS) when dealing with noisy semantic label maps. It incorporates Label Diffusion, a discrete diffusion process for labels, and introduces a class-wise noise schedule to improve the generation quality of smaller and rarer classes. The paper also provides theoretical analyses and introduces a new noisy SIS benchmark to assess generation performance under noisy conditions.",
+      "methodology": "The SCDM employs a conditional diffusion model with novel forward and generation processes. It uses Label Diffusion, a discrete diffusion process with label masking, to stochastically perturb semantic label maps. A class-wise noise schedule is incorporated to differentially diffuse labels based on class. The model is trained using a hybrid loss function, and classifier-free guidance with extrapolation is used during sampling.",
+      "experimental_setup": "The method is evaluated on the ADE20K dataset and a newly introduced noisy SIS benchmark, including downsampled semantic maps, edge-masked labels, and randomly corrupted masks. The performance is measured using Fréchet Inception Distance (FID) and mean Intersection-over-Union (mIoU). Ablation studies are conducted to assess the impact of different components.",
+      "limitations": "One limitation is the potential for the model to ignore user intentions by generating clean images even when noisy images are desired. Another limitation mentioned is that the model cannot dynamically learn the optimal noise schedules for labels.",
+      "future_research_directions": "Future research directions include exploring methods to control faithfulness to the semantic maps, allowing users to generate noisy images if desired. Another direction is to develop mechanisms for dynamically learning optimal noise schedules for labels, which could increase the flexibility and power of semantic image synthesis."
+    }
+  ]
 }
