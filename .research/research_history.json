@@ -1,0 +1,29 @@
+{
+  "base_queries": [
+    "diffusion model"
+  ],
+  "base_github_url": "https://github.com/huggingface/diffusers",
+  "base_method_text": {
+    "arxiv_id": "2403.03852v1",
+    "arxiv_url": "http://arxiv.org/abs/2403.03852v1",
+    "title": "Accelerating Convergence of Score-Based Diffusion Models, Provably",
+    "authors": [
+      "Gen Li",
+      "Yu Huang",
+      "Timofey Efimov",
+      "Yuting Wei",
+      "Yuejie Chi",
+      "Yuxin Chen"
+    ],
+    "published_date": "2024-03-06T17:02:39Z",
+    "journal": "",
+    "doi": "",
+    "summary": "Score-based diffusion models, while achieving remarkable empirical\nperformance, often suffer from low sampling speed, due to extensive function\nevaluations needed during the sampling phase. Despite a flurry of recent\nactivities towards speeding up diffusion generative modeling in practice,\ntheoretical underpinnings for acceleration techniques remain severely limited.\nIn this paper, we design novel training-free algorithms to accelerate popular\ndeterministic (i.e., DDIM) and stochastic (i.e., DDPM) samplers. Our\naccelerated deterministic sampler converges at a rate $O(1/{T}^2)$ with $T$ the\nnumber of steps, improving upon the $O(1/T)$ rate for the DDIM sampler; and our\naccelerated stochastic sampler converges at a rate $O(1/T)$, outperforming the\nrate $O(1/\\sqrt{T})$ for the DDPM sampler. The design of our algorithms\nleverages insights from higher-order approximation, and shares similar\nintuitions as popular high-order ODE solvers like the DPM-Solver-2. Our theory\naccommodates $\\ell_2$-accurate score estimates, and does not require\nlog-concavity or smoothness on the target distribution.",
+    "github_url": "https://github.com/huggingface/diffusers",
+    "main_contributions": "The paper introduces novel training-free algorithms to accelerate both deterministic (DDIM) and stochastic (DDPM) score-based diffusion models, achieving improved convergence rates of O(1/T^2) and O(1/T) respectively, without requiring stringent assumptions on the target data distribution.",
+    "methodology": "The approach leverages insights from higher-order approximation and momentum terms to adjust the update rule in discrete time. For the deterministic sampler, it shares similar intuitions with high-order ODE solvers like DPM-Solver-2. The stochastic sampler is designed based on higher-order expansions of the conditional density.",
+    "experimental_setup": "The proposed deterministic samplers were evaluated using pre-trained score functions from Huggingface on the CelebA-HQ, LSUN-Bedroom, and LSUN-Churches datasets. The image quality was visually compared for different numbers of function evaluations (NFEs).",
+    "limitations": "The convergence theory might be sub-optimal in terms of its dependency on the problem dimension. The deterministic sampler requires stronger assumptions on the score estimates.",
+    "future_research_directions": "Future research directions include refining the dimension dependency in the convergence theory, extending the algorithm and theory using ideas from third-order or higher-order ODEs, and designing higher-order solvers for SDE-based samplers."
+  }
+}
