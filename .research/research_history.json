@@ -67,5 +67,7 @@
       "limitations": "The paper mentions the risk of over-optimization during reward fine-tuning, which can degrade video quality despite increasing reward scores. It also acknowledges that specialized video reward models might outperform the repurposed image reward models. Additionally, the method's reliance on image reward models might not fully capture the nuances of video quality and temporal coherence.",
       "future_research_directions": "Future research directions include developing more advanced video reward models that capture human preferences for video as a whole and designing strategic mechanisms to identify and ameliorate over-optimization during reward fine-tuning. Also, it is expected to explore the adaptation to other reward functions."
     }
-  ]
+  ],
+  "base_experimental_code": "The paper does not include a specific code implementation of the proposed algorithms. It refers to implementations of pre-trained score functions available in Hugging Face's Diffusers library.",
+  "base_experimental_info": "The experimental setup involves using pre-trained score functions from Huggingface on datasets like CelebA-HQ, LSUN-Bedroom, and LSUN-Churches for visual comparisons of image quality at different NFEs. No specific training details or metrics are provided in the context."
 }
