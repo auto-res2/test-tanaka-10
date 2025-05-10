@@ -1,0 +1,30 @@
+{
+  "base_queries": [
+    "diffusion model"
+  ],
+  "base_github_url": "https://github.com/RingBDStack/HypDiff",
+  "base_method_text": {
+    "arxiv_id": "2405.03188v1",
+    "arxiv_url": "http://arxiv.org/abs/2405.03188v1",
+    "title": "Hyperbolic Geometric Latent Diffusion Model for Graph Generation",
+    "authors": [
+      "Xingcheng Fu",
+      "Yisen Gao",
+      "Yuecen Wei",
+      "Qingyun Sun",
+      "Hao Peng",
+      "Jianxin Li",
+      "Xianxian Li"
+    ],
+    "published_date": "2024-05-06T06:28:44Z",
+    "journal": "",
+    "doi": "",
+    "summary": "Diffusion models have made significant contributions to computer vision,\nsparking a growing interest in the community recently regarding the application\nof them to graph generation. Existing discrete graph diffusion models exhibit\nheightened computational complexity and diminished training efficiency. A\npreferable and natural way is to directly diffuse the graph within the latent\nspace. However, due to the non-Euclidean structure of graphs is not isotropic\nin the latent space, the existing latent diffusion models effectively make it\ndifficult to capture and preserve the topological information of graphs. To\naddress the above challenges, we propose a novel geometrically latent diffusion\nframework HypDiff. Specifically, we first establish a geometrically latent\nspace with interpretability measures based on hyperbolic geometry, to define\nanisotropic latent diffusion processes for graphs. Then, we propose a\ngeometrically latent diffusion process that is constrained by both radial and\nangular geometric properties, thereby ensuring the preservation of the original\ntopological properties in the generative graphs. Extensive experimental results\ndemonstrate the superior effectiveness of HypDiff for graph generation with\nvarious topologies.",
+    "github_url": "https://github.com/RingBDStack/HypDiff",
+    "main_contributions": "The paper introduces HypDiff, a novel hyperbolic geometric latent diffusion model for graph generation that addresses the limitations of existing discrete graph diffusion models, such as high computational complexity and inability to preserve topological information due to the non-Euclidean structure of graphs. HypDiff establishes a geometrically latent space based on hyperbolic geometry and defines anisotropic latent diffusion processes constrained by radial and angular geometric properties.",
+    "methodology": "HypDiff employs a two-stage training strategy: first, a hyperbolic autoencoder is trained to obtain pre-trained node embeddings; second, a hyperbolic geometric latent diffusion process is trained. The model uses Hyperbolic Graph Convolutional Networks (HGCN) as the hyperbolic geometric encoder and a Fermi-Dirac decoder. It introduces an approximate diffusion process based on radial measures and utilizes angular constraints to guide the diffusion model.",
+    "experimental_setup": "The model's performance was evaluated on synthetic datasets (SBM, BA, Community, Ego, BA-G, Grid) and real-world datasets (Cora, Citeseer, Polblogs, MUTAG, IMDB-B, PROTEINS, COLLAB) for node classification and graph generation tasks. Performance metrics include F1 scores for node classification and maximum mean discrepancy (MMD) scores and F1 scores of precision-recall and density-coverage for graph generation. Baselines include VGAE, ANE, GraphGAN, P-VAE, Hype-ANE, GraphRNN, GDSS, DiGress, GraphGDP and EDGE.",
+    "limitations": "The paper does not explicitly mention the limitations of the proposed method. However, the sensitivity analysis reveals that the performance of HypDiff is sensitive to the choice of the number of clusters k and the geometric prior coefficient δ.",
+    "future_research_directions": "Future research directions are not explicitly mentioned in the paper. However, based on the content, potential future directions could include exploring different hyperbolic geometric spaces or manifolds, developing adaptive methods for selecting the number of clusters and geometric prior coefficients, and applying HypDiff to other graph-related tasks, such as link prediction or graph classification."
+  }
+}
