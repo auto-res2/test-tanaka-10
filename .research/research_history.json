@@ -24,5 +24,42 @@
     "experimental_setup": "The framework was evaluated on continuous control tasks, including navigation (MAZE), robot arm manipulation (FETCH PICK), dexterous manipulation (HAND ROTATE), and locomotion (CHEETAH, WALKER, ANTREACH). Baselines included Behavioral Cloning (BC), Implicit BC (IBC), and Diffusion Policy. Performance was measured using success rate and return. Ablation studies were conducted to justify design choices and investigate hyperparameter effects.",
     "limitations": "The proposed framework is designed to learn from expert trajectories without interacting with environments, so it cannot learn from agent trajectories. The framework inherits biases exhibited by the expert demonstrators, which can manifest as sub-optimal, unsafe, or even discriminatory behaviors.",
     "future_research_directions": "Future research could extend the method to incorporate agent data for potential improvement when interacting with environments is possible. Addressing the biases inherited from expert demonstrators is also crucial, potentially through ongoing research in mitigating bias and promoting fairness in machine learning."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "diffusion model",
+    "vision diffusion",
+    "behavior cloning",
+    "denoising diffusion",
+    "joint probability"
+  ],
+  "add_github_urls": [
+    "https://github.com/haonan3/SilentBadDiffusion"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2401.04136v2",
+      "arxiv_url": "http://arxiv.org/abs/2401.04136v2",
+      "title": "The Stronger the Diffusion Model, the Easier the Backdoor: Data\n  Poisoning to Induce Copyright Breaches Without Adjusting Finetuning Pipeline",
+      "authors": [
+        "Haonan Wang",
+        "Qianli Shen",
+        "Yao Tong",
+        "Yang Zhang",
+        "Kenji Kawaguchi"
+      ],
+      "published_date": "2024-01-07T08:37:29Z",
+      "journal": "",
+      "doi": "",
+      "summary": "The commercialization of text-to-image diffusion models (DMs) brings forth\npotential copyright concerns. Despite numerous attempts to protect DMs from\ncopyright issues, the vulnerabilities of these solutions are underexplored. In\nthis study, we formalized the Copyright Infringement Attack on generative AI\nmodels and proposed a backdoor attack method, SilentBadDiffusion, to induce\ncopyright infringement without requiring access to or control over training\nprocesses. Our method strategically embeds connections between pieces of\ncopyrighted information and text references in poisoning data while carefully\ndispersing that information, making the poisoning data inconspicuous when\nintegrated into a clean dataset. Our experiments show the stealth and efficacy\nof the poisoning data. When given specific text prompts, DMs trained with a\npoisoning ratio of 0.20% can produce copyrighted images. Additionally, the\nresults reveal that the more sophisticated the DMs are, the easier the success\nof the attack becomes. These findings underline potential pitfalls in the\nprevailing copyright protection strategies and underscore the necessity for\nincreased scrutiny to prevent the misuse of DMs.",
+      "github_url": "https://github.com/haonan3/SilentBadDiffusion",
+      "main_contributions": "The paper introduces SilentBadDiffusion, a novel backdoor attack method targeting text-to-image diffusion models. This method aims to induce copyright infringement by strategically embedding connections between copyrighted information and text references in poisoning data, without requiring access to the training or fine-tuning processes. The research demonstrates the vulnerability of diffusion models to generating copyrighted images when triggered by specific prompts, highlighting potential pitfalls in copyright protection strategies.",
+      "methodology": "The SilentBadDiffusion method involves three stages: (1) Poisoning Data Generation, which includes Element Decomposition using a Multi-modal Large Language Model (MLLM) and semantic segmentation to identify and segment visual elements, and Poisoning Image Generation using a Large Language Model (LLM) and an inpainting model to create cohesive image-text pairs; (2) Model Training using the poisoned dataset; and (3) Inference Stage, where specific prompts trigger the compromised model to generate copyright infringing images. The method exploits the diffusion models’ understanding of textual references and visual elements to compose copyrighted images.",
+      "experimental_setup": "The experiments were conducted on Stable Diffusion models (v1.1 to v1.5) using the Pokemon BLIP Captions dataset and a subset of the LAION Aesthetics v2 6.5+ dataset, as well as the COYO-700m dataset. The attack success was evaluated using the Self Supervised Copy Detection (SSCD) metric, with a threshold of 0.5 indicating copyright infringement. The Copyright Infringement Rate (CIR) and First-Attack Epoch (FAE) were used to quantitatively assess the attack's effectiveness.",
+      "limitations": "The approach assumes that copyright images are decomposable into distinct elements. The study acknowledges ethical and legal concerns associated with datasets like LAION and Pokemon, which contained problematic content. The effectiveness of the attack is also dependent on the composition ability of the diffusion model and may not be as effective with less advanced models or when using a significantly reduced portion of poisoning data.",
+      "future_research_directions": "Future research directions include exploring a broader range of copyright targets, leveraging optimization techniques to integrate copyright information by updating pixel-wise values of the training data, and investigating style-attack and multiple-backdoors attack scenarios. Additionally, further investigation into the memorization mechanisms of diffusion models and their potential for few-shot generalization could provide valuable insights into developing protection mechanisms."
+    }
+  ]
 }
