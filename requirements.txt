@@ -1,1 +1,8 @@
-# Please list the required python packages.
+torch>=1.9.0
+torchvision>=0.10.0
+torchmetrics>=0.7.0
+numpy>=1.19.5
+matplotlib>=3.4.3
+opencv-python>=4.5.3
+scikit-image>=0.18.3
+tensorboard>=2.6.0
