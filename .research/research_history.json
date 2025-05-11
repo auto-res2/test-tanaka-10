@@ -61,5 +61,7 @@
       "limitations": "The method can produce images that are out-of-distribution for the diffusion model, leading to inconsistent quality. One component's prompt may dominate the generated image. The method relies on pixel diffusion models, as image decompositions must be done in pixel space. Success rate depends on careful prompt selection and parameter tuning.",
       "future_research_directions": "Future research directions include studying the societal and ethical considerations of better controlling image synthesis, especially regarding potential applications in misinformation. Exploring methods to improve the consistency and quality of generated illusions, and addressing the limitations related to prompt dominance and the reliance on pixel diffusion models are also potential future directions."
     }
-  ]
+  ],
+  "base_experimental_code": "The core code for the FiT model is located in `fit/model/fit_model.py`, `fit/model/modules.py`, `fit/model/norms.py`, and `fit/model/rope.py`. These files define the Flexible Vision Transformer architecture, its building blocks (like FiTBlock, PatchEmbedder, and FinalLayer), normalization layers, and the 2D Rotary Positional Embedding (RoPE) implementation.",
+  "base_experimental_info": "The experimental settings, including training datasets and configurations, are primarily found within the `train_fit.py` and `sample_fit_ddp.py` files, and are loaded using `omegaconf`.  Specifically, training parameters related to the dataset (e.g., ImageNet), diffusion process, and model architecture are configurable through YAML files loaded by `omegaconf`. The code also shows the use of class-free diffusion guidance (CFG) with a `cfg_scale`."
 }
