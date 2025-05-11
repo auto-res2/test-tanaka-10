@@ -26,5 +26,40 @@
     "experimental_setup": "The model was trained on the ImageNet dataset with a maximum token length of 256. Evaluation was performed across various resolutions and aspect ratios, both within and beyond the training distribution. Performance was measured using Frechet Inception Distance (FID), sliced FID (sFID), Inception Score (IS), Precision, and Recall. The FiT-XL/2 model was trained for 1.8 million steps.",
     "limitations": "The FiT-XL/2 model was only trained for 1.8M steps, and its performance at the training resolution of 256x256 is slightly inferior to DiT-XL/2, which was trained for more steps. The generative capabilities of FiT-XL/2 with higher resolution training (larger token length limitation) have not been thoroughly explored. The research only explores training-free resolution extrapolation techniques.",
     "future_research_directions": "Future work includes exploring the generative capabilities of FiT when trained with higher resolutions and larger token length limitations. It also includes delving into resolution extrapolation methods that require additional training. The authors suggest further research could focus on generating images with arbitrary resolutions and aspect ratios."
-  }
+  },
+  "add_queries": [
+    "vision"
+  ],
+  "generated_queries": [
+    "Diffusion Transformer",
+    "Flexible Vision",
+    "2D RoPE",
+    "Resolution Extrapolation",
+    "SwiGLU"
+  ],
+  "add_github_urls": [
+    "https://github.com/tancik/Illusion-Diffusion"
+  ],
+  "add_method_texts": [
+    {
+      "arxiv_id": "2404.11615v2",
+      "arxiv_url": "http://arxiv.org/abs/2404.11615v2",
+      "title": "Factorized Diffusion: Perceptual Illusions by Noise Decomposition",
+      "authors": [
+        "Daniel Geng",
+        "Inbum Park",
+        "Andrew Owens"
+      ],
+      "published_date": "2024-04-17T17:59:59Z",
+      "journal": "",
+      "doi": "",
+      "summary": "Given a factorization of an image into a sum of linear components, we present\na zero-shot method to control each individual component through diffusion model\nsampling. For example, we can decompose an image into low and high spatial\nfrequencies and condition these components on different text prompts. This\nproduces hybrid images, which change appearance depending on viewing distance.\nBy decomposing an image into three frequency subbands, we can generate hybrid\nimages with three prompts. We also use a decomposition into grayscale and color\ncomponents to produce images whose appearance changes when they are viewed in\ngrayscale, a phenomena that naturally occurs under dim lighting. And we explore\na decomposition by a motion blur kernel, which produces images that change\nappearance under motion blurring. Our method works by denoising with a\ncomposite noise estimate, built from the components of noise estimates\nconditioned on different prompts. We also show that for certain decompositions,\nour method recovers prior approaches to compositional generation and spatial\ncontrol. Finally, we show that we can extend our approach to generate hybrid\nimages from real images. We do this by holding one component fixed and\ngenerating the remaining components, effectively solving an inverse problem.",
+      "github_url": "https://github.com/tancik/Illusion-Diffusion",
+      "main_contributions": "The paper introduces Factorized Diffusion, a zero-shot method that adapts diffusion models to control individual components of an image during generation. It enables the creation of perceptual illusions like hybrid images, color hybrids (changing appearance in grayscale), and motion hybrids (changing with motion blur) by manipulating noise estimates conditioned on different text prompts for each component. The method also extends to solving inverse problems, such as generating hybrid images from real images.",
+      "methodology": "The method modifies the sampling procedure of diffusion models. It decomposes an image into components and, during the reverse diffusion process, estimates noise multiple times for each component, conditioned on different text prompts. A composite noise estimate is then assembled from these components and used to perform the diffusion update step. The core technique involves manipulating the noise estimate rather than the noisy image itself.",
+      "experimental_setup": "The method was evaluated on tasks such as generating hybrid images (including triple hybrids), color hybrids, and motion hybrids. Qualitative results are presented for various prompts and decomposition parameters. Quantitative evaluations include a two-alternative forced choice (2AFC) human study comparing the generated hybrid images to those produced by traditional methods, and CLIP alignment scores to measure the alignment of generated images with the text prompts.",
+      "limitations": "The method can produce images that are out-of-distribution for the diffusion model, leading to inconsistent quality. One component's prompt may dominate the generated image. The method relies on pixel diffusion models, as image decompositions must be done in pixel space. Success rate depends on careful prompt selection and parameter tuning.",
+      "future_research_directions": "Future research directions include studying the societal and ethical considerations of better controlling image synthesis, especially regarding potential applications in misinformation. Exploring methods to improve the consistency and quality of generated illusions, and addressing the limitations related to prompt dominance and the reliance on pixel diffusion models are also potential future directions."
+    }
+  ]
 }
